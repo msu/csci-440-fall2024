@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ChinookApp</title>
+</head>
+<body>
+<main class="container">
+
+    <h1><img src="https://avatars2.githubusercontent.com/u/67816555?s=50&v=4"> CS 440 - Database Systems</h1>
+
+    <nav>
+        <ul>
+            <li><strong>ChinookApp</strong></li>
+        </ul>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/artists">Artists</a></li>
+            <li><a href="/albums">Albums</a></li>
+            <li><a href="/tracks">Tracks</a></li>
+            <li>|</li>
+            <li><a href="/employees">Employees</a></li>
+            <li><a href="/customers">Customers</a></li>
+            <li><a href="/invoices">Invoices</a></li>
+        </ul>
+    </nav>
+
+
+    #if($message)
+    <h4 style="color:green; background-color: darkseagreen;padding: 12px; border-radius: 8px;border: 1px solid green">
+        $!message
+    </h4>
+    #end
+    #if($error)
+    <h4 style="color:darkred; background-color: lightcoral;padding: 12px; border-radius: 8px;border: 1px solid darkred">
+        $!error
+    </h4>
+    #end
+    <h4 style="color:red">$!error</h4>
+
+

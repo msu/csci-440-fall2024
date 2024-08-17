@@ -1,0 +1,8 @@
+<nav>
+    <ul></ul>
+    <ul>
+        <li><a href="/employees" class="contrast">Employee Home</a></li>
+        <li><a href="/employees/tree" class="contrast">Employee Tree</a></li>
+        <li><a href="/employees/sales" class="contrast">Employee Sales Report</a></li>
+    </ul>
+</nav>

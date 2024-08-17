@@ -1,0 +1,32 @@
+#parse('templates/header.vm')
+#parse('templates/employees/nav.vm')
+
+<h3>Employees</h3>
+
+<table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Sales Count</th>
+        <th>Sales Totals</th>
+    </tr>
+    </thead>
+    <tbody>
+        #foreach( $info in $salesInfo )
+        <tr>
+            <td>$!info.FirstName</td>
+            <td>$!info.LastName</td>
+            <td>$!info.Email</td>
+            <td>$!info.SalesCount</td>
+            <td>$!info.SalesTotals</td>
+        </tr>
+        #end
+    </tbody>
+</table>
+
+<a href="/employees/new">[Create New Employee]</a>
+
+
+#parse('templates/footer.vm')

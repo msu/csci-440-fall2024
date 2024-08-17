@@ -1,0 +1,9 @@
+#parse('templates/header.vm')
+
+<h1>Album</h1>
+
+<form action="/albums/new" method="post">
+    #parse('templates/albums/form.vm')
+</form>
+
+#parse('templates/footer.vm')

@@ -1,0 +1,40 @@
+
+
+#if( $employee.hasErrors() )
+    <div style="color:red">
+        <h4>Errors:</h4>
+        <ul>
+            #foreach( $error in $employee.Errors )
+            <li>$error</li>
+            #end
+        </ul>
+    </div>
+#end
+
+<table>
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>FirstName</td>
+        <td><input type="text" name="FirstName" value="$!employee.FirstName"></td>
+    </tr>
+    <tr>
+        <td>LastName</td>
+        <td><input type="text" name="LastName" value="$!employee.LastName"></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input type="text" name="Email" value="$!employee.Email"></td>
+    </tr>
+    <tr>
+        <td>Boss</td>
+        <td>$web.select('Employee', 'Email', $!web.param('ReportsTo'), false)</td>
+    </tr>
+    </tbody>
+</table>
+<button>Save</button>

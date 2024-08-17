@@ -1,0 +1,32 @@
+
+
+#if( $album.hasErrors() )
+    <div style="color:red">
+        <h4>Errors:</h4>
+        <ul>
+            #foreach( $error in $album.Errors )
+            <li>$error</li>
+            #end
+        </ul>
+    </div>
+#end
+
+<table>
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Title</td>
+        <td><input type="text" name="Title" value="$!album.Title"></td>
+    </tr>
+    <tr>
+        <td>Artist</td>
+        <td>$web.select('Artist', 'Name', $!album.ArtistId)</td>
+    </tr>
+    </tbody>
+</table>
+<button>Save</button>

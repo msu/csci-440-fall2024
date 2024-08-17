@@ -1,0 +1,37 @@
+#parse('templates/header.vm')
+#parse('templates/employees/nav.vm')
+
+<a role="button" style="float: right" href="/employees/new">Create New Employee</a>
+<h3>Employees</h3>
+
+<table>
+    #if($employees.size() == 0)
+        <caption><b>No Employees Found!!!</b></caption>
+    #else
+        <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+            #foreach( $employee in $employees )
+            <tr>
+                <td>$employee.EmployeeId</td>
+                <td>$!employee.FirstName</td>
+                <td>$!employee.LastName</td>
+                <td><a href="/employees/$employee.EmployeeId">$!employee.Email</a></td>
+            </tr>
+            #end
+        </tbody>
+    #end
+</table>
+
+$web.pagingWidget($employees)
+
+
+
+
+#parse('templates/footer.vm')

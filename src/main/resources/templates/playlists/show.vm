@@ -1,0 +1,50 @@
+#parse('templates/header.vm')
+
+<h2>Playlist</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Name</td>
+        <td>$!playlist.Name</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h4>Tracks</h4>
+<table>
+    <thead>
+    <tr>
+        <th>Track ID</th>
+        <th>Name</th>
+        <th>Milliseconds</th>
+        <th>Bytes</th>
+        <th>UnitPrice</th>
+    </tr>
+    </thead>
+    <tbody>
+        #foreach( $track in $playlist.tracks )
+        <tr>
+            <td><a href="/tracks/$track.TrackId">$track.TrackId</a></td>
+            <td>$!track.Name</td>
+            <td>$!track.Milliseconds</td>
+            <td>$!track.Bytes</td>
+            <td>$!track.UnitPrice</td>
+        </tr>
+        #end
+    </tbody>
+</table>
+
+
+<a href="/playlists/$playlist.PlaylistId/edit">[Edit Playlist]</a>
+<a href="/playlists/$playlist.PlaylistId/delete">[Delete Playlist]</a>
+
+
+#parse('templates/footer.vm')

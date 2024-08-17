@@ -1,0 +1,42 @@
+#parse('templates/header.vm')
+
+<h2>Artist</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Name</td>
+        <td>$!artist.Name</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Albums</h4>
+<table>
+    <thead>
+    <tr>
+        <th>Album ID</th>
+        <th>Title</th>
+    </tr>
+    </thead>
+    <tbody>
+        #foreach( $album in $artist.albums )
+        <tr>
+            <td><a href="/albums/$album.AlbumId">$album.AlbumId</a></td>
+            <td>$!album.Title</td>
+        </tr>
+        #end
+    </tbody>
+</table>
+
+<a href="/artists/$artist.ArtistId/edit">[Edit Artist]</a>
+<a href="/artists/$artist.ArtistId/delete">[Delete Artist]</a>
+
+
+#parse('templates/footer.vm')

@@ -1,0 +1,30 @@
+#parse('templates/header.vm')
+
+<a role="button" style="float: right" href="/albums/new">Create New Album</a>
+<h3>Albums</h3>
+
+<table>
+    #if($albums.size() == 0)
+        <caption><b>No Albums Found!!!</b></caption>
+    #else
+        <thead>
+        <tr>
+            <th>Album ID</th>
+            <th>Title</th>
+        </tr>
+        </thead>
+        <tbody>
+            #foreach( $album in $albums )
+            <tr>
+                <td>$album.AlbumId</td>
+                <td><a href="/albums/$album.AlbumId">$!album.Title</a></td>
+            </tr>
+            #end
+        </tbody>
+    #end
+</table>
+
+$web.pagingWidget($albums)
+
+
+#parse('templates/footer.vm')

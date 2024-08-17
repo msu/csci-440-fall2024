@@ -1,0 +1,32 @@
+#parse('templates/header.vm')
+
+<h3>Customers</h3>
+
+<table>
+    #if($customers.size() == 0)
+        <caption><b>No Customers Found!!!</b></caption>
+    #else
+        <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+            #foreach( $customer in $customers )
+            <tr>
+                <td><a href="/customers/$customer.CustomerId">$customer.CustomerId</a></td>
+                <td>$!customer.FirstName</td>
+                <td>$!customer.LastName</td>
+                <td>$!customer.Email</td>
+            </tr>
+            #end
+        </tbody>
+    #end
+</table>
+
+$web.pagingWidget($customers)
+
+#parse('templates/footer.vm')

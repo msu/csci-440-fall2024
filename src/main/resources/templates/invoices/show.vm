@@ -1,0 +1,65 @@
+#parse('templates/header.vm')
+
+<h2>Invoice</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Billing Address</td>
+        <td>$!invoice.BillingAddress</td>
+    </tr>
+    <tr>
+        <td>Billing City</td>
+        <td>$!invoice.BillingCity</td>
+    </tr>
+    <tr>
+        <td>Billing State</td>
+        <td>$!invoice.BillingState</td>
+    </tr>
+    <tr>
+        <td>Billing Country</td>
+        <td>$!invoice.BillingCountry</td>
+    </tr>
+    <tr>
+        <td>Billing Postal Code</td>
+        <td>$!invoice.BillingPostalCode</td>
+    </tr>
+    <tr>
+        <td>Total</td>
+        <td>$!invoice.Total</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Invoice Items</h4>
+<table>
+    <thead>
+    <tr>
+        <th>InvoiceLineId</th>
+        <th>TrackId</th>
+        <th>UnitPrice</th>
+        <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+        #foreach( $item in $invoice.InvoiceItems )
+        <tr>
+            <td>$!item.InvoiceLineId</td>
+            <td>$!item.TrackId</td>
+            <td>$!item.UnitPrice</td>
+            <td>$!item.Quantity</td>
+        </tr>
+        #end
+        $web.pagingWidget($invoice.InvoiceItems)
+    </tbody>
+</table>
+
+
+
+#parse('templates/footer.vm')

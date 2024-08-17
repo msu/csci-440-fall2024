@@ -1,0 +1,10 @@
+#parse('templates/header.vm')
+#parse('templates/employees/nav.vm')
+
+<h3>Employees</h3>
+
+<h4>Reporting Tree</h4>
+$!employeeTree
+
+
+#parse('templates/footer.vm')

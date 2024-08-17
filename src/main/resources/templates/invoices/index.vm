@@ -1,0 +1,39 @@
+#parse('templates/header.vm')
+
+<h3>Invoices</h3>
+
+<table>
+    #if($invoices.size() == 0)
+        <caption><b>No Invoices Found!!!</b></caption>
+    #else
+        <thead>
+        <tr>
+            <th>Invoice ID</th>
+            <th>Billing Address</th>
+            <th>Billing City</th>
+            <th>Billing State</th>
+            <th>Billing Country</th>
+            <th>Billing Postal Code</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+            #foreach( $invoice in $invoices )
+            <tr>
+                <td><a href="/invoices/$invoice.InvoiceId">$invoice.InvoiceId</a></td>
+                <td>$!invoice.BillingAddress</td>
+                <td>$!invoice.BillingCity</td>
+                <td>$!invoice.BillingState</td>
+                <td>$!invoice.BillingCountry</td>
+                <td>$!invoice.BillingPostalCode</td>
+                <td>$!invoice.Total</td>
+            </tr>
+            #end
+        </tbody>
+    #end
+</table>
+
+$web.pagingWidget($invoices)
+
+
+#parse('templates/footer.vm')

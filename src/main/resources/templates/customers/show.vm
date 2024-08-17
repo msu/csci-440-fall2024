@@ -1,0 +1,67 @@
+#parse('templates/header.vm')
+
+<h2>Customer</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>FirstName</td>
+        <td>$!customer.FirstName</td>
+    </tr>
+    <tr>
+        <td>LastName</td>
+        <td>$!customer.lastName</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>$!customer.email</td>
+    </tr>
+    <tr>
+        <td>Rep</td>
+        <td><a href="/employees/$!customer.SupportRepId">$!customer.SupportRep.Email</a> </td>
+    </tr>
+    </tbody>
+</table>
+
+<table>
+    #if($customer.Invoices.size() == 0)
+        <caption><b>No Invoices Found!!!</b></caption>
+    #else
+        <thead>
+        <tr>
+            <th>Invoice ID</th>
+            <th>Billing Address</th>
+            <th>Billing City</th>
+            <th>Billing State</th>
+            <th>Billing Country</th>
+            <th>Billing Postal Code</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+            #foreach( $invoice in $customer.Invoices )
+            <tr>
+                <td><a href="/invoices/$invoice.InvoiceId">$invoice.InvoiceId</a></td>
+                <td>$!invoice.BillingAddress</td>
+                <td>$!invoice.BillingCity</td>
+                <td>$!invoice.BillingState</td>
+                <td>$!invoice.BillingCountry</td>
+                <td>$!invoice.BillingPostalCode</td>
+                <td>$!invoice.Total</td>
+            </tr>
+            #end
+        </tbody>
+    #end
+</table>
+
+<a href="/customers/$customer.CustomerId/edit">[Edit Customer]</a>
+<a href="/customers/$customer.CustomerId/delete">[Delete Customer]</a>
+
+
+#parse('templates/footer.vm')

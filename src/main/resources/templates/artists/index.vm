@@ -1,0 +1,29 @@
+#parse('templates/header.vm')
+
+<a role="button" style="float: right" href="/artists/new">Create New Artist</a>
+<h3>Artists</h3>
+
+<table>
+    #if($artists.size() == 0)
+        <caption><b>No Artists Found!!!</b></caption>
+    #else
+    <thead>
+    <tr>
+        <th>Artist ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+        #foreach( $artist in $artists )
+        <tr>
+            <td>$artist.ArtistId</td>
+            <td><a href="/artists/$artist.ArtistId">$!artist.Name</a></td>
+        </tr>
+        #end
+    #end
+</tbody>
+</table>
+
+$web.pagingWidget($artists)
+
+#parse('templates/footer.vm')

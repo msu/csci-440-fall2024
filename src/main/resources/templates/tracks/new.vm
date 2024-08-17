@@ -1,0 +1,9 @@
+#parse('templates/header.vm')
+
+<h1>Track</h1>
+
+<form action="/tracks/new" method="post">
+    #parse('templates/tracks/form.vm')
+</form>
+
+#parse('templates/footer.vm')

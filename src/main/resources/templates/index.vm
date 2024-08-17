@@ -1,0 +1,20 @@
+#parse('templates/header.vm')
+
+<h2>Schema</h2>
+
+<p>
+    This class project is based on the <code>chinook.db</code> schema, which is part of the
+    <a href="https://www.sqlitetutorial.net/sqlite-sample-database/">SQLite Tutorial</a>.
+</p>
+
+<p>
+    Here is the schema of the database:
+</p>
+
+<img src="https://www.sqlitetutorial.net/wp-content/uploads/2015/11/sqlite-sample-database-color.jpg">
+
+<p>
+  You can navigate to the various resources in the database using the navigation links above.
+</p>
+
+#parse('templates/footer.vm')

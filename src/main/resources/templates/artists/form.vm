@@ -1,0 +1,28 @@
+
+
+#if( $artist.hasErrors() )
+    <div style="color:red">
+        <h4>Errors:</h4>
+        <ul>
+            #foreach( $error in $artist.Errors )
+            <li>$error</li>
+            #end
+        </ul>
+    </div>
+#end
+
+<table>
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Name</td>
+        <td><input type="text" name="Name" value="$!artist.Name"></td>
+    </tr>
+    </tbody>
+</table>
+<button>Save</button>

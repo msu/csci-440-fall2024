@@ -1,0 +1,40 @@
+#parse('templates/header.vm')
+
+<h2>Track</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Name</td>
+        <td>$!track.Name</td>
+    </tr>
+    <tr>
+        <td>Album</td>
+        <td><a href="/albums/$!track.AlbumId">$!track.AlbumTitle</a></td>
+    </tr>
+    <tr>
+        <td>Milliseconds</td>
+        <td>$!track.Milliseconds</td>
+    </tr>
+    <tr>
+        <td>Bytes</td>
+        <td>$!track.Bytes</td>
+    </tr>
+    <tr>
+        <td>UnitPrice</td>
+        <td>$!track.UnitPrice</td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/tracks/$track.TrackId/edit">[Edit Track]</a>
+<a href="/tracks/$track.TrackId/delete">[Delete Track]</a>
+
+
+#parse('templates/footer.vm')

@@ -1,0 +1,72 @@
+#parse('templates/header.vm')
+
+<h3>Tracks</h3>
+
+<div style="padding: 12px">
+    <form>
+        <b>Advanced Search</b>
+        <table>
+            <tbody>
+            <tr>
+                <td>Track Name</td>
+                <td><input type="text" placeholder="Search by track name"
+                           name="q"
+                           value="$!web.param('q')"></td>
+            </tr>
+            <tr>
+                <td>Album</td>
+                <td>$web.select('Album', 'Title', $!web.param('AlbumId'), true)</td>
+            </tr>
+            <tr>
+                <td>Artist</td>
+                <td>$web.select('Artist', 'Name', $!web.param('ArtistId'), true)</td>
+            </tr>
+            <tr>
+                <td>Runtime (Min Seconds)</td>
+                <td><input type="number" placeholder="Minimum Runtime"
+                           name="min"
+                           value="$!web.param('min')"></td>
+            </tr>
+            <tr>
+                <td>Runtime (Max Seconds)</td>
+                <td><input type="number" placeholder="Maximum Runtime"
+                           name="max"
+                           value="$!web.param('max')"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button>Search!</button></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </form>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Track ID</th>
+        <th>Name</th>
+        <th>Milliseconds</th>
+        <th>Bytes</th>
+        <th>UnitPrice</th>
+    </tr>
+    </thead>
+    <tbody>
+        #foreach( $track in $tracks )
+        <tr>
+            <td><a href="/tracks/$track.TrackId">$track.TrackId</a></td>
+            <td>$!track.Name</td>
+            <td>$!track.Milliseconds</td>
+            <td>$!track.Bytes</td>
+            <td>$!track.UnitPrice</td>
+        </tr>
+        #end
+    </tbody>
+</table>
+
+$web.pagingWidget($tracks)
+
+#parse('templates/footer.vm')

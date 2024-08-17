@@ -1,0 +1,8 @@
+#parse('templates/header.vm')
+
+<h2>Ooops...</h2>
+<p>An exception occurred: $!error</p>
+
+<pre>$!stacktrace</pre>
+
+#parse('templates/footer.vm')

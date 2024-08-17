@@ -1,0 +1,50 @@
+#parse('templates/header.vm')
+
+<a role="button" style="float: right" href="/tracks/new">Create New Track</a>
+<h3>Tracks <small>($!totalTracks Total)</small></h3>
+
+<div style="padding: 12px">
+    <form>
+        <b>Search </b>
+        <input type="text" placeholder="Search by track, album or artist name..."
+               name="q"
+               value="$!web.param('q')"><br/>
+        <a href="/tracks/search">Go To Advanced Search &rarr;</a>
+    </form>
+</div>
+
+<table>
+    #if($tracks.size() == 0)
+        <caption><b>No Tracks Found!!!</b></caption>
+    #else
+        <thead>
+        <tr>
+            <th>Track ID</th>
+            <th>Name</th>
+            <th>Album</th>
+            <th>ArtistName</th>
+            <th><a href="?o=Milliseconds">Milliseconds</a></th>
+            <th><a href="?o=Bytes">Bytes</a></th>
+            <th>UnitPrice</th>
+        </tr>
+        </thead>
+        <tbody>
+            #foreach( $track in $tracks )
+            <tr>
+                <td>$track.TrackId</td>
+                <td><a href="/tracks/$track.TrackId">$!track.Name</a></td>
+                <td>$!track.AlbumTitle</td>
+                <td>$!track.ArtistName</td>
+                <td>$!track.Milliseconds</td>
+                <td>$!track.Bytes</td>
+                <td>$!track.UnitPrice</td>
+            </tr>
+            #end
+        </tbody>
+    #end
+</table>
+
+$web.pagingWidget($tracks)
+
+
+#parse('templates/footer.vm')

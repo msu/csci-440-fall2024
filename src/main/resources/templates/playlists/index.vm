@@ -1,0 +1,28 @@
+#parse('templates/header.vm')
+
+<h3>Playlists</h3>
+
+<table>
+    #if($playlists.size() == 0)
+        <caption><b>No Playlists Found!!!</b></caption>
+    #else
+        <thead>
+        <tr>
+            <th>Playlist ID</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+            #foreach( $playlist in $playlists )
+            <tr>
+                <td><a href="/playlists/$playlist.PlaylistId">$playlist.PlaylistId</a></td>
+                <td>$!playlist.Name</td>
+            </tr>
+            #end
+        </tbody>
+    #end
+</table>
+
+$web.pagingWidget($playlists)
+
+#parse('templates/footer.vm')

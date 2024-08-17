@@ -1,0 +1,55 @@
+#parse('templates/header.vm')
+
+<h2>Employee</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>FirstName</td>
+        <td>$!employee.FirstName</td>
+    </tr>
+    <tr>
+        <td>LastName</td>
+        <td>$!employee.lastName</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>$!employee.email</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Customers</h3>
+
+<table>
+    <thead>
+    <tr>
+        <th>Customer ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+        #foreach( $customer in $employee.Customers )
+        <tr>
+            <td><a href="/customers/$customer.CustomerId">$customer.CustomerId</a></td>
+            <td>$!customer.FirstName</td>
+            <td>$!customer.LastName</td>
+            <td>$!customer.Email</td>
+        </tr>
+        #end
+    </tbody>
+</table>
+
+<a href="/employees/$employee.EmployeeId/edit">[Edit Employee]</a>
+<a href="/employees/$employee.EmployeeId/delete">[Delete Employee]</a>
+
+
+#parse('templates/footer.vm')

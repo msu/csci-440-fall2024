@@ -1,0 +1,9 @@
+#parse('templates/header.vm')
+
+<h1>Employee</h1>
+
+<form action="/employees/new" method="post">
+    #parse('templates/employees/form.vm')
+</form>
+
+#parse('templates/footer.vm')
