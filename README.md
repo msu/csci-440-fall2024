@@ -10,9 +10,9 @@ Please use the following steps to create a *private* copy of this repo for your 
 
 - Create a *private* repository in your own account by
     - Going to <https://github.com/new>
-    - Enter the name `csci-440-fall2023-private`
+    - Enter the name `csci-440-fall2024-private`
     - Select `Private`
-    - Navigate to the `Settings` -> `Manage Access` section
+    - Navigate to the `Settings` -> `Collaborators` -> `Manage Access` section
     - Add `1cg` as a collaborator
 Once your repository is initialized, you can pull it down to your local machine:
 
