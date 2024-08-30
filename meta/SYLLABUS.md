@@ -52,8 +52,8 @@ There is no required book for this course.
 | Week        | Mon                             | Wed                            | Fri                         | Due                 |
 |-------------|---------------------------------|--------------------------------|-----------------------------|---------------------|
 | Week 1      | ***                             | Class Overview & Github        | Databases Introduction      |                     |
-| Week 2      | The Relational Model            | E/R Diagrams                   | Normalization               | **Github Repo Due** |
-| Week 3      | LABOR DAY - NO CLASS            | Class Schema Design            | **Quiz 1**                  |                     |
+| Week 2      | The Relational Model            | E/R Diagrams                   | Class Schema Design         | **Github Repo Due** |
+| Week 3      | LABOR DAY - NO CLASS            | Normalization                  | **Quiz 1**                  |                     |
 | Week 4      | SQL: SELECT                     | SQL: JOINS                     | SQL: Aggregation            | **E/R Diagram Due** |
 | Week 5      | SQL: CREATE, UPDATE, DELETE     | SQL: Paging, Ordering, Explain | **Quiz 2**                  |                     |                             
 | Week 6      | JDBC                            | Working w/Databases & The Web  | Project Overview            | **SQL Homework 1**  |
